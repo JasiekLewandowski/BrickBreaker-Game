@@ -15,8 +15,8 @@ public class Game extends JPanel implements KeyListener, ActionListener {
   private boolean lost;
   private int bricksLeft = 20;
   private int playerX = 310;
-  private int ballPositionX = 120;
-  private int ballPositionY = 350;
+  private int ballPositionX = 350;
+  private int ballPositionY = 450;
   private int ballDirectionX = -1;
   private int ballDirectionY = -2;
 

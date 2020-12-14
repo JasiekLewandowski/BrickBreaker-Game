@@ -28,7 +28,9 @@ public class Brick {
       return false;
 }
   public boolean checkXBrickCollision(int ballPositionX){
-        return (ballPositionX == brickPositionX + 38 || ballPositionX + 19 == brickPositionX);
+        int collisionRangeRight = (brickPositionX + 38) - ballPositionX;
+        int collisionRangeLeft =  brickPositionX - (ballPositionX + 19);
+        return (collisionRangeRight > -2  && collisionRangeRight < 2 || collisionRangeLeft >= -2 && collisionRangeLeft < 2);
   }
   public boolean checkYBrickCollision(int ballPositionY){
         return (ballPositionY + 18 == brickPositionY || ballPositionY - 38  == brickPositionY);
