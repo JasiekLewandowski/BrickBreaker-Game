@@ -33,7 +33,9 @@ public class Brick {
         return (collisionRangeRight > -2  && collisionRangeRight < 2 || collisionRangeLeft >= -2 && collisionRangeLeft < 2);
   }
   public boolean checkYBrickCollision(int ballPositionY){
-        return (ballPositionY + 18 == brickPositionY || ballPositionY - 38  == brickPositionY);
+        int collisionRangeUp = ballPositionY + 18 - brickPositionY;
+        int collisionRangeDown = ballPositionY - 38 - brickPositionY;
+        return (collisionRangeUp > -2 && collisionRangeUp < 2 || collisionRangeDown > -2 && collisionRangeDown < 2);
   }
   public void setActive(boolean active) {
     this.active = active;
