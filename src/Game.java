@@ -7,13 +7,13 @@ import java.awt.event.KeyListener;
 
 public class Game extends JPanel implements KeyListener, ActionListener {
 
-  final BrickWall brickWall;
-  final Timer timer;
-  final int delay = 8;
+  private final BrickWall brickWall;
+  private final Timer timer;
+  private final int delay = 8;
   private boolean play;
   private boolean win;
   private boolean lost;
-  private int bricksLeft = 20;
+  private int bricksLeft;
   private int playerX = 310;
   private int ballPositionX = 350;
   private int ballPositionY = 450;
@@ -23,7 +23,7 @@ public class Game extends JPanel implements KeyListener, ActionListener {
 
   public Game(){
     brickWall = new BrickWall();
-    addKeyListener(this);
+    bricksLeft = brickWall.getNumberOfBricks();
     setFocusable(true);
     setFocusTraversalKeysEnabled(false);
     timer = new Timer(delay, this);

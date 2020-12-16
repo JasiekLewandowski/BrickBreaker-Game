@@ -4,12 +4,13 @@ import java.util.List;
 
 public class BrickWall {
 
-  final int numberOfBricks = 20;
-  final List<Brick> brickWall = new ArrayList<>();
+  private final int numberOfBricks = 20;
+  private final List<Brick> brickWall;
 
   public BrickWall() {
+    brickWall = new ArrayList<>();
     for (int i = 0; i < numberOfBricks; i++) {
-      if (i < 10)
+      if (i < numberOfBricks/2)
       brickWall.add(new Brick(i * 45 + 120, 100));
       else
         brickWall.add(new Brick((i-10) * 45 + 120, 150));
@@ -24,7 +25,7 @@ public class BrickWall {
     Brick currentBrick;
     boolean collisionX;
     boolean collisionY;
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < numberOfBricks; i++) {
       currentBrick = brickWall.get(i);
       if (currentBrick.checkBrickCollision(ballPositionX, ballPositionY)) {
         collisionX = currentBrick.checkXBrickCollision(ballPositionX);
@@ -40,5 +41,9 @@ public class BrickWall {
       }
     }
     return 0;
+  }
+
+  public int getNumberOfBricks() {
+    return numberOfBricks;
   }
 }
