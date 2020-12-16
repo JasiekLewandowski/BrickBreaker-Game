@@ -24,6 +24,7 @@ public class Game extends JPanel implements KeyListener, ActionListener {
   public Game(){
     brickWall = new BrickWall();
     bricksLeft = brickWall.getNumberOfBricks();
+    addKeyListener(this);
     setFocusable(true);
     setFocusTraversalKeysEnabled(false);
     timer = new Timer(delay, this);
