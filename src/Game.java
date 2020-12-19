@@ -70,17 +70,23 @@ public class Game extends JPanel implements KeyListener, ActionListener {
       if (play) {
         if (new Rectangle(ballPositionX, ballPositionY, 20, 20).intersects(new Rectangle(playerX, 530, 100, 18))) {
           ballDirectionY = -ballDirectionY;
-        } else if (collisionType > 0) {
-          if (collisionType == 1) {
-            ballDirectionX = -ballDirectionX;
-          } else if (collisionType == 2) {
-            ballDirectionY = -ballDirectionY;
-          } else if (collisionType == 3) {
-            ballDirectionX = -ballDirectionX;
-            ballDirectionY = -ballDirectionY;
-          }
-          bricksLeft--;
         }
+        switch (collisionType) {
+          case 1:
+            ballDirectionX = -ballDirectionX;
+            bricksLeft--;
+            break;
+          case 2:
+            ballDirectionY = -ballDirectionY;
+            bricksLeft--;
+            break;
+          case 3:
+            ballDirectionX = -ballDirectionX;
+            ballDirectionY = -ballDirectionY;
+            bricksLeft--;
+            break;
+        }
+
         ballPositionX += ballDirectionX;
         ballPositionY += ballDirectionY;
         if (ballPositionX < 0) {
